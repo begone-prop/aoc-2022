@@ -14,8 +14,6 @@ if __name__ == '__main__':
     else:
         html_data = stdin.read()
 
-    input_file = argv[1] if len(argv) > 1 else stdin
-
     parsed = bs(html_data, 'html.parser')
     article = parsed.find('article')
 
