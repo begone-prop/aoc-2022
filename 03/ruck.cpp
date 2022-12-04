@@ -41,12 +41,10 @@ int main(void) {
         }
 
         if(line_no && line_no % 3 == 2) {
-            std::cout << "Group end\n";
             for(size_t idx = 0; idx < line.size(); idx++) {
                 int cdx = char_to_idx(line[idx]);
                 if(counts2[cdx] == 2) {
                     sum2 += cdx + 1;
-                    std::cout << line[idx] << '\n';
                     break;
                 }
             }
@@ -55,7 +53,6 @@ int main(void) {
                 counts2[i] = 0;
             }
         } else {
-            std::cout << "Counting...\n";
             std::set<char> uniq;
 
             for(size_t idx = 0; idx < line.size(); idx++) {
