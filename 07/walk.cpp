@@ -31,6 +31,16 @@ size_t findDirsInThresh(const Entry* root, std::vector<size_t>& sizes) {
     return total;
 }
 
+void freeTree(Entry* root) {
+    for(size_t idx = 0; idx < root->child.size(); idx++) {
+        freeTree(root->child[idx]);
+    }
+
+    for(size_t idx = 0; idx < root->child.size(); idx++) {
+        delete root->child[idx];
+    }
+}
+
 size_t findDirsToDelete(const Entry* root, std::vector<size_t>& sizes) {
     size_t total = 0;
 
@@ -132,6 +142,9 @@ int main(void) {
 
     std::cout << "Anwser for part 1 is " << sum << '\n';
     std::cout << "Anwser for part 2 is " << min << '\n';
+
+    freeTree(root);
+    delete root;
 
     return 0;
 }
